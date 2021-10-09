@@ -2,20 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Logo from './components/logo/logo';
-import Nagigation from './components/naivbar/naiv'
-import ImageFrom from './components/ImageLinkForm/ImageForm'
+import App from './App'
 
 import  'tachyons'
+
+
+
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <div>
-    <Nagigation/>
-    <Logo/>
-    <ImageFrom/>
+      <App/>
     </div>
    
   </React.StrictMode>,

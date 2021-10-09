@@ -11,7 +11,7 @@ export default class ImageFrom  extends Component {
                 <div className="inputbackground ma5">
                     <div className="f3 pa3 form">
                         <input  className="w-70 ma" type="text" /> 
-                        <button  className="w-30 grow dim">Detect</button>
+                        <button  className="w-30 grow dim link">Detect</button>
                     </div>  
                 </div>
 
