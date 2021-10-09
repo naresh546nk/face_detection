@@ -2,13 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Logo from './components/logo/logo';
+import Nagigation from './components/naivbar/naiv'
+
+import  'tachyons'
 
 
 
 ReactDOM.render(
   <React.StrictMode>
     <div>
-    <h1>face recognition</h1>
+    <Nagigation/>
+    <Logo/>
     </div>
    
   </React.StrictMode>,
