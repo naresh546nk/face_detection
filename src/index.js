@@ -4,6 +4,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Logo from './components/logo/logo';
 import Nagigation from './components/naivbar/naiv'
+import ImageFrom from './components/ImageLinkForm/ImageForm'
 
 import  'tachyons'
 
@@ -14,6 +15,7 @@ ReactDOM.render(
     <div>
     <Nagigation/>
     <Logo/>
+    <ImageFrom/>
     </div>
    
   </React.StrictMode>,

@@ -11,3 +11,7 @@ code {
     monospace;
 }
 
+.flex{
+  display: flex;
+  justify-content: center
+}
