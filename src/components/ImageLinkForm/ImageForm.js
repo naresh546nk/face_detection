@@ -1,8 +1,8 @@
-import  React, { Component } from 'react'
+import  React from 'react'
 import './imageForm.css'
 
-export default class ImageFrom  extends Component {
-  render() {
+const ImageFrom  =({onChangeInput, onButtonSubmit}) => {
+  
     return (
         <div>
             <div className="f4 tc">This magic brain will detecct the face of you image let try !</div>
@@ -10,8 +10,8 @@ export default class ImageFrom  extends Component {
             <div className="container">
                 <div className="inputbackground ma5">
                     <div className="f3 pa3 form">
-                        <input  className="w-70 ma" type="text" /> 
-                        <button  className="w-30 grow dim link">Detect</button>
+                        <input  className="w-70 ma" type="text"  onChange={onChangeInput}/> 
+                        <button  onClick={onButtonSubmit} className="w-30 grow dim link">Detect</button>
                     </div>  
                 </div>
 
@@ -19,5 +19,6 @@ export default class ImageFrom  extends Component {
         </div>
       
     )
-  }
+  
 }
+export default  ImageFrom;

@@ -15,7 +15,8 @@ code {
 
 .flex{
   display: flex;
-  justify-content: center
+  height: 400px;
+  width:auto;
 }
 button{
   cursor: pointer;
@@ -28,4 +29,9 @@ button{
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.output{
+  display: flex;
+  justify-content: center;
 }
