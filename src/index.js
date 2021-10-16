@@ -3,8 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App'
+import Register from './components/Register/Register'
 
 import  'tachyons'
+import { Route, Link,Switch,  BrowserRouter as Router } from 'react-router-dom'  
+import Login from './components/Login/login';
+
+const routing =(
+  <Router>
+     <Switch>
+    <Route  path="/login"  component={Login} />
+    <Route  path="/home"  component={App} />
+    <Route  path="/Register"  component={Register} />
+    </Switch>
+  </Router>
+)
 
 
 
@@ -12,12 +25,7 @@ import  'tachyons'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <div>
-      <App/>
-    </div>
-   
-  </React.StrictMode>,
+  routing,
   document.getElementById('root')
 );
 
