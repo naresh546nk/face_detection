@@ -8,26 +8,44 @@ import Register from './components/Register/Register'
 import  'tachyons'
 import { Route, Link,Switch,  BrowserRouter as Router } from 'react-router-dom'  
 import Login from './components/Login/login';
-
-const routing =(
-  <Router>
-     <Switch>
-    <Route  path="/login"  component={Login} />
-    <Route  path="/home"  component={App} />
-    <Route  path="/Register"  component={Register} />
-    <Route  path="/"  component={Login} />
-    </Switch>
-  </Router>
-)
+import Nagigation from './components/naivbar/naiv'
+import Particles from 'react-particles-js'
 
 
+
+const particalsOption={
+  particles: {
+    number: {
+      value: 200,
+      density: {
+        enable: true,
+        value_area: 1000,
+      }
+    }
+  }
+
+}
 
 
 
 
 ReactDOM.render(
-  routing,
+  <Router>
+    <div>
+      <Nagigation />
+      <Particles className="particals" params={particalsOption} 
+        />
+        <Switch>
+        <Route exect  path="/login"  component={Login} />
+        <Route exect path="/home"  component={App} />
+        <Route exect path="/Register"  component={Register} />
+        <Route   path="/"  component={Login} />
+        </Switch>
+    </div>
+</Router>,
   document.getElementById('root')
+
+ 
 );
 
 // If you want to start measuring performance in your app, pass a function

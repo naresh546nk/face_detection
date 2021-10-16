@@ -1,13 +1,10 @@
 import React,{Component} from 'react';
 import Clarifai from 'clarifai'
 import './index.css';
-import Logo from './components/logo/logo';
-import Nagigation from './components/naivbar/naiv'
 import ImageFrom from './components/ImageLinkForm/ImageForm'
-import Particles from 'react-particles-js'
 import Rank from './components/Rank/Rank'
 import FaceDetection from './components/FaceDetection/FaceDetection'
-
+import Logo from './components/logo/logo';
 import  'tachyons'
 
 const app=new Clarifai.App({
@@ -15,19 +12,6 @@ const app=new Clarifai.App({
 });
 
 
-const particalsOption={
-    particles: {
-      number: {
-        value: 200,
-        density: {
-          enable: true,
-          value_area: 1000,
-        }
-      }
-    }
-  
-  }
-  
   
 
 class App extends Component {
@@ -102,9 +86,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Particles className="particals" params={particalsOption} 
-        />
-        <Nagigation/>
         <Logo/>
         <ImageFrom  
         onButtonSubmit={this.onButtonSubmit}

@@ -7,7 +7,7 @@ export default class Naiv extends Component {
     return (
         <nav className="navbar bg-light-green f4">
              <a className="grow dim  pa2" href="http://localhost:3000/Login">Login</a>
-            <a className="grow  dim pa2" href="#">Sign out</a>
+            <a className="grow  dim pa2" href="http://localhost:3000/">Sign out</a>
         </nav>
       
     )
