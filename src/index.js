@@ -15,6 +15,7 @@ const routing =(
     <Route  path="/login"  component={Login} />
     <Route  path="/home"  component={App} />
     <Route  path="/Register"  component={Register} />
+    <Route  path="/"  component={Login} />
     </Switch>
   </Router>
 )
