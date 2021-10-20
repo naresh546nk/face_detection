@@ -14,21 +14,29 @@ const app=new Clarifai.App({
 
   
 
-class App extends Component {
-    constructor(){
-        super();
+class App extends Component  {
+    constructor(props){
+        super(props)
         this.state={
             input:'',
             imageUrl:'',
             box:{}
-         //to store the canvas details
+
              
-        }
+        }    
     }
+  componentWillMount(){
+    if(!this.props.location.state){
+      this.props.history.push("/login")
+     }
+  }
+
+
+  
 
  onChangeInput = (event) =>{
     this.setState({input:event.target.value})
-     //console.log(event.target.value)
+  
  }
 
 
@@ -37,7 +45,7 @@ class App extends Component {
 
 
  calculateFaceLocation = (data) => {
-     console.log("calculatingFaceLoaction :",data)
+     //console.log("calculatingFaceLoaction :",data)
     const clarifaiFace = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');
     const width = Number(image.width);
@@ -51,21 +59,22 @@ class App extends Component {
   }
 
   displayFaceBox = (box) => {
-    console.log("setting data to box :", box)
+    //console.log("setting data to box :", box)
     this.setState({box: box});
-    console.log("Value set in box checkign ... : ",this.state.box)
+    //console.log("Value set in box checkign ... : ",this.state.box)
   }
 
-
-
+    async setRank() {
+    let response=await fetch('http://localhost:3001/setRank?email='+sessionStorage.getItem('email'))
+    let data= await response.json()
+    console.log(data)
+ }
 
 
 
 
  onButtonSubmit =() =>{
-     console.log("click");
      this.setState({imageUrl: this.state.input})
-
      app.models
      .predict(
        Clarifai.FACE_DETECT_MODEL,
@@ -73,6 +82,7 @@ class App extends Component {
      .then(response => {
        console.log('hi', response)
        this.displayFaceBox(this.calculateFaceLocation(response))
+       this.setRank();
      })
      .catch(err => console.log(err));
  }

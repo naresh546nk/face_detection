@@ -10,6 +10,7 @@ import { Route, Link,Switch,  BrowserRouter as Router } from 'react-router-dom'
 import Login from './components/Login/login';
 import Nagigation from './components/naivbar/naiv'
 import Particles from 'react-particles-js'
+import Test from './components/ReactHook/Test';
 
 
 
@@ -36,9 +37,10 @@ ReactDOM.render(
       <Particles className="particals" params={particalsOption} 
         />
         <Switch>
-        <Route exect  path="/login"  component={Login} />
+        <Route exect path="/login"  component={Login} />
         <Route exect path="/home"  component={App} />
         <Route exect path="/Register"  component={Register} />
+        <Route exect path="/test"  component={Test} />
         <Route   path="/"  component={Login} />
         </Switch>
     </div>

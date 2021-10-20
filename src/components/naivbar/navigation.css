@@ -2,3 +2,8 @@ nav{
     display: flex;
     justify-content: flex-end;
 }
+
+
+.userName{
+    text-align: center
+}

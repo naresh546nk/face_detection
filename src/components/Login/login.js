@@ -1,11 +1,7 @@
-import react ,{Component} from 'react'
+
 import './login.css'
-import App from '../../App'
-
-
-import {Redirect } from 'react-router-dom'
-
 import {useState} from 'react';
+import App from '../../App.js'
 
 
 
@@ -18,6 +14,7 @@ const Login = (props) =>{
 
     const [password, setPassword] = useState()
     const [email, setEmail] =  useState()
+    const [sqlError ,setSqlError] = useState()
   
    
      async function fetchData(event) {
@@ -30,13 +27,18 @@ const Login = (props) =>{
                 password:password
               })
             }
-       const response = await fetch('http://localhost:3001/users/login', requestOptions);
+       const response = await fetch('http://localhost:3001/login', requestOptions);
        const json_data = await response.json();
        console.log("respones : ",json_data)
-       if(json_data.status==400){
-         console.log("error occured.  ")
+      
+       if(json_data.result===null){
+         console.log("error occured.  " , json_data)
+         setSqlError(json_data.message)
+         console.log("sqlError ",sqlError)
        }else{
-          props.history.push('/home')
+          sessionStorage.setItem('userName' ,json_data.result.name)
+          sessionStorage.setItem('email' ,json_data.result.email)
+          props.history.push("/home" ,true)
        }
       
      }
@@ -56,10 +58,11 @@ const Login = (props) =>{
           </div>
           <form  className="login-form">
           {/* <form className="login-form"> */}
-            <input type="text" placeholder="username" onChange={(e)=>setEmail(e.target.value)}  />
+            <input type="text" placeholder="Eamil" onChange={(e)=>setEmail(e.target.value)}  />
             <input type="password" placeholder="password" onChange={(e)=>setPassword(e.target.value) } />
             <button   onClick={(event)=>fetchData(event)}  > Login </button>
             <p className="message ">Not registered? <a href="http://localhost:3000/Register"><span className="f6">Create an account </span></a></p>
+            <div >{sqlError}</div>
           </form>
         </div>
       </div>
