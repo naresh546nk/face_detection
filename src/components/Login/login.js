@@ -1,7 +1,8 @@
 
 import './login.css'
-import {useState} from 'react';
+import {useState , useEffect} from 'react';
 import App from '../../App.js'
+import Naiv from '../naivbar/naiv';
 
 
 
@@ -16,6 +17,7 @@ const Login = (props) =>{
     const [email, setEmail] =  useState()
     const [sqlError ,setSqlError] = useState()
   
+
    
      async function fetchData(event) {
             event.preventDefault();
@@ -29,12 +31,12 @@ const Login = (props) =>{
             }
        const response = await fetch('http://localhost:3001/login', requestOptions);
        const json_data = await response.json();
-       console.log("respones : ",json_data)
+       //console.log("respones : ",json_data)
       
        if(json_data.result===null){
-         console.log("error occured.  " , json_data)
+         //console.log("error occured.  " , json_data)
          setSqlError(json_data.message)
-         console.log("sqlError ",sqlError)
+         //console.log("sqlError ",sqlError)
        }else{
           sessionStorage.setItem('userName' ,json_data.result.name)
           sessionStorage.setItem('email' ,json_data.result.email)
@@ -61,7 +63,7 @@ const Login = (props) =>{
             <input type="text" placeholder="Eamil" onChange={(e)=>setEmail(e.target.value)}  />
             <input type="password" placeholder="password" onChange={(e)=>setPassword(e.target.value) } />
             <button   onClick={(event)=>fetchData(event)}  > Login </button>
-            <p className="message ">Not registered? <a href="http://localhost:3000/Register"><span className="f6">Create an account </span></a></p>
+            <p className="message ">Not registered? <a href="/Register"><span className="f6">Create an account </span></a></p>
             <div >{sqlError}</div>
           </form>
         </div>

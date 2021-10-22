@@ -1,9 +1,8 @@
 
 import {useForm} from 'react-hook-form'
 import {useState} from 'react'
-
-import './Register.scss'
 import  'tachyons'
+import './Register.scss'
 
 
 const Register= (props) => {
@@ -14,6 +13,9 @@ const Register= (props) => {
     const [gender, setGender]= useState('Male');
     const [country ,setCountry]=useState('India');
     const [sqlError ,setSqlError]=useState();
+
+    //console.log(watch('password'))
+    watch() ? console.log(errors):  console.log("not changed")
     
     async function addUser(data) {
         //event.preventDefault();
@@ -41,14 +43,14 @@ const Register= (props) => {
             }
             else{
                 sessionStorage.setItem("userName",data.name)
+                sessionStorage.setItem("email",data.email)
                 setSqlError(data.name +" is registered successfylly !" )
                 setTimeout(()=>{props.history.push('/home',true)},2000)
 
             }
-            // console.log("status :" ,data.status)
-            // console.log("error :" ,data.error.sqlMessage)
+    
         })
-        //console.log("respones : "+json_data.errors)
+     
         
     }
 
@@ -67,7 +69,7 @@ const Register= (props) => {
                 </div>
                 <div className="input_field"> <span><i aria-hidden="true" className="fa fa-lock"></i></span>
                     <input type="password" name="password" placeholder="Password"  {...register('password',{required:true ,
-                     maxLength:8 , maxLength:16})}  />
+                     minLength:8 , maxLength:16}) }  />
                 </div>
                 <div className="input_field"> <span><i aria-hidden="true" className="fa fa-lock"></i></span>
                     <input type="password" name="password" placeholder="Re-type Password"{...register('re-password',{required:true})}  />
@@ -78,7 +80,7 @@ const Register= (props) => {
                     </div>
    
          
-                    <div className="input_field radio_option" >
+                    <div className="radio_option" >
                         <input type="radio" name="radiogroup1" id="rd1" onClick={(e)=>setGender('Male') }/>
                         <label htmlFor="rd1">Male</label>
                         <input type="radio" name="radiogroup1" id="rd2" onClick={(e)=> setGender('Female')} />
@@ -96,8 +98,11 @@ const Register= (props) => {
                         <input type="checkbox" id="cb1" {...register('checkbox',{required:true})} />
                         <label htmlFor="cb1">I agree with terms and conditions</label>
                     </div>
+
+                    
                 <input  className="button" type="submit" value="Register" />
                 </form>
+                <a href="/Login"><span className="f6">Already have an Account ? </span></a>
                 <span className="tc-red">{sqlError} </span>
             </div>
             </div>

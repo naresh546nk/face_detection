@@ -6,9 +6,9 @@ import App from './App'
 import Register from './components/Register/Register'
 
 import  'tachyons'
-import { Route, Link,Switch,  BrowserRouter as Router } from 'react-router-dom'  
+import { Route,Switch,  BrowserRouter as Router } from 'react-router-dom'  
 import Login from './components/Login/login';
-import Nagigation from './components/naivbar/naiv'
+// import Nagigation from './components/naivbar/naiv'
 import Particles from 'react-particles-js'
 import Test from './components/ReactHook/Test';
 
@@ -33,7 +33,7 @@ const particalsOption={
 ReactDOM.render(
   <Router>
     <div>
-      <Nagigation />
+      {/* <Nagigation /> */}
       <Particles className="particals" params={particalsOption} 
         />
         <Switch>

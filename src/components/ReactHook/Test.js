@@ -6,25 +6,37 @@ export default function App() {
   const onSubmit = data => {console.log(data); console.log("error : ", errors)};
    
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="tc ma2 pa2 from">
-      FirstName: <input {...register("firstName", { required: true, maxLength: 20, minLength:5 })} /> <br/>
-      {errors.firstName && <span>Invalid input</span>}
-      <br/>
-      LastName: <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} /><br/>
-      {errors.lastName && <span>invalid {console.log(errors)}</span>}
-    
-      <br/>
-      Age: <input type="number" {...register("age", { min: 18, max: 99 })} /><br/>
-      <input disabled={errors.lastName || errors.firstName} className="bg-red" type="submit" />
 
-      <div className="input_field radio_option">
-      <div class="input_field radio_option">
-                    <input type="radio" name="radiogroup1" id="rd1" />
-                    <label for="rd1">Male</label>
-                    <input type="radio" name="radiogroup1" id="rd2" />
-                    <label for="rd2">Female</label>
-        </div>
-         </div>
-    </form>
+<nav class="dt w-100 border-box pa3 ph5-ns">
+  <a class="dtc v-mid mid-gray link dim w-25" href="#" title="Home">
+    <img src="http://tachyons.io/img/logo.jpg" class="dib w2 h2 br-100" alt="Site Name"/>
+  </a>
+  <div class="dtc v-mid w-75 tr">
+    <a class="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="About">Services</a>
+    <a class="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="#" title="Store">Blog</a>
+    <a class="link dim dark-gray f6 f5-ns dib" href="#" title="Contact">Join Us</a>
+  </div>
+</nav>
+
+    // <form onSubmit={handleSubmit(onSubmit)} className="tc ma2 pa2 from">
+    //   FirstName: <input {...register("firstName", { required: true, maxLength: 20, minLength:5 })} /> <br/>
+    //   {errors.firstName && <span>Invalid input</span>}
+    //   <br/>
+    //   LastName: <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} /><br/>
+    //   {errors.lastName && <span>invalid {console.log(errors)}</span>}
+    
+    //   <br/>
+    //   Age: <input type="number" {...register("age", { min: 18, max: 99 })} /><br/>
+    //   <input disabled={errors.lastName || errors.firstName} className="bg-red" type="submit" />
+
+    //   <div className="input_field radio_option">
+    //   <div class="input_field radio_option">
+    //                 <input type="radio" name="radiogroup1" id="rd1" />
+    //                 <label for="rd1">Male</label>
+    //                 <input type="radio" name="radiogroup1" id="rd2" />
+    //                 <label for="rd2">Female</label>
+    //     </div>
+    //      </div>
+    // </form>
   );
 }

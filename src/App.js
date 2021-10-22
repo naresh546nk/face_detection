@@ -5,14 +5,24 @@ import ImageFrom from './components/ImageLinkForm/ImageForm'
 import Rank from './components/Rank/Rank'
 import FaceDetection from './components/FaceDetection/FaceDetection'
 import Logo from './components/logo/logo';
+import Nagigation from './components/naivbar/naiv'
+import Particles from 'react-particles-js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import  'tachyons'
+
+
+
+
+
 
 const app=new Clarifai.App({
     apiKey:'d6c9b8382af8453db2368280bcbd6572'
 });
 
 
-  
+
+
 
 class App extends Component  {
     constructor(props){
@@ -88,20 +98,40 @@ class App extends Component  {
  }
 
 
-  //https://samples.clarifai.com/face-det.jpg
+  particalsOption={
+  particles: {
+    number: {
+      value: 200,
+      density: {
+        enable: true,
+        value_area: 1000,
+      }
+    }
+  }
+
+}
+
+
  
 
 
 
   render() {
+
+    
+
     return (
       <div>
-        <Logo/>
+        <Nagigation />
+        <Particles className="particals" params={this.particalsOption} 
+        />
+        <Logo />
         <ImageFrom  
         onButtonSubmit={this.onButtonSubmit}
         onChangeInput={this.onChangeInput}/>
         <Rank/>
         <FaceDetection imageUrl={this.state.imageUrl} box={this.state.box}/>
+
         
       </div>
     )
