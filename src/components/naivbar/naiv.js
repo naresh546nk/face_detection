@@ -28,30 +28,30 @@ import { useForm } from 'react-hook-form';
 
   
 
-<nav class="navbar1 navbar-expand-lg navbar-dark bg-dark static-top">
-  <div class="container1 ml0 tl tc">
-    <a class="navbar-brand text-left" href="#">
-      <h3 >{userName}</h3>
-    </a>
-  </div>
-  <div class="container1"/>
-    <div class="container1">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" onClick={()=>{clearSession()}} href="/Login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active "  onClick={()=>{clearSession()}}  href="/">Logout</a>
-        </li>
+ <nav className="navbar navbar-expand-lg navbar-dark bg-dark static-top d-flex flex-row "> 
 
-      </ul>
-    </div>
-  </div>
-</nav>
+     
+         <h3  className="navbar-brand">{userName}</h3>
+
+
+      <div className="ms-auto">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul className="navbar-nav ">
+               <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" onClick={()=>{clearSession()}} href="/Login">Login</a>
+               </li>
+               <li className="nav-item">
+                  <a className="nav-link active "  onClick={()=>{clearSession()}}  href="/">Logout</a>
+               </li>
+
+              </ul>
+           </div>
+       </div>
+
+  </nav>
 
 
     )
