@@ -37,7 +37,7 @@ class App extends Component  {
     }
   componentWillMount(){
     if(!this.props.location.state){
-      this.props.history.push("/login")
+      //this.props.history.push("/login")
      }
   }
 
