@@ -8,7 +8,7 @@ const Rank = () => {
     const [userRank ,setUserRank]= useState(0)
 
     async  function getRank(){
-        const response =await fetch('http://localhost:3001/getRank?email='+sessionStorage.getItem('email'))
+        const response =await fetch('http://facedetection-backend5466.herokuapp.com/getRank?email='+sessionStorage.getItem('email'))
         const data= await response.json();
         setUserRank(data.rank)
     }

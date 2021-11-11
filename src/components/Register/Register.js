@@ -68,7 +68,7 @@ const Register= (props) => {
         }
         console.log("body :", requestOptions.body)
         
-        const response= await fetch('http://localhost:3001/user' , requestOptions);
+        const response= await fetch('http://facedetection-backend5466.herokuapp.com/user' , requestOptions);
         const json_data=response.json().then(d=>{
             if(d.message==='failed'){
                 setSqlError(d.error.errors[0].message)
