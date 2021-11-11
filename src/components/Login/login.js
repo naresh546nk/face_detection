@@ -30,7 +30,7 @@ const Login = (props) =>{
               })
             }
         //http://facedetection-backend5466.herokuapp.com
-       const response = await fetch('http://localhost:3001/login', requestOptions);
+       const response = await fetch('http://facedetection-backend5466.herokuapp.com/login', requestOptions);
        const json_data = await response.json();
        //console.log("respones : ",json_data)
       

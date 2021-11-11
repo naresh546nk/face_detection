@@ -75,7 +75,7 @@ class App extends Component  {
   }
     //http://facedetection-backend5466.herokuapp.com
     async setRank() {
-    let response=await fetch('http://localhost:3001/setRank?email='+sessionStorage.getItem('email'))
+    let response=await fetch('http://facedetection-backend5466.herokuapp.com/setRank?email='+sessionStorage.getItem('email'))
     let data= await response.json()
     console.log(data)
  }
